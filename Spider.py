@@ -69,7 +69,7 @@ def get_range_price_page_url():
                 driver.get(part_range_price_url)
             except Exception:
                 driver.get(part_range_price_url)
-            #等待2秒，以便浏览器加载所有资源，受网速影响如果网站需要加载资源较多可能加载不完全
+            #等待3秒，以便浏览器加载所有资源，受网速影响如果网站需要加载资源较多可能加载不完全
             time.sleep(3)
             html = driver.page_source
             selector = etree.HTML(html)
@@ -149,8 +149,7 @@ def get_house_info():
     row_count = table.nrows
     # 启动一个driver
     driver = get_edgedriver()
-    f = open("qingdao34"
-             ".txt", 'w', encoding='utf-8')
+    f = open("shenzhen.txt", 'w', encoding='utf-8')
     for i in range(0,row_count):
         #这里同样会出现get_finall_urls（）函数中的问题，处理方法与其一样
         pattern = re.compile("text:'" + '(.*?)' + "'", re.S)
